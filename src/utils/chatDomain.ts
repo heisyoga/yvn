@@ -45,7 +45,7 @@ const PROMPT_INJECTION_PATTERNS: RegExp[] = [
 const GREETING_PATTERN =
   /^(hi|hello|hey|halo|hai|pagi|siang|sore|malam|selamat\s+(pagi|siang|sore|malam)|permisi|tes|test|yo|apa\s+kabar|こんにちは|こんばんは|おはよう|안녕|안녕하세요|您好|你好)[\s!?.。！]*$/i;
 
-const PORTFOLIO_SIGNAL_PATTERN = /\b(adi|yoga|komang|portfolio|portofolio|profile|profil|about|website|instiki|lks|mandha\s*ru|mandharu|evoting|github|react|typescript|tailwind|laravel|express|mysql|postgresql|aws|gcp|linkedin|instagram|proyek(?:-proyek)?|karya|pengalaman|keahlian|prestasi|pendidikan|kuliah|kontak)\b|ポートフォリオ|プロフィール|プロジェクト|経験|スキル|連絡|作品|技術|이력|포트폴리오|프로필|프로젝트|경력|기술|연락|작품|作品集|简介|项目|经历|技能|联系|作品|技术/i;
+const PORTFOLIO_SIGNAL_PATTERN = /\b(adi|yoga|komang|portfolio|portofolio|profile|profil|about|website|instiki|lks|mandha\s*ru|mandharu|evoting|github|react|typescript|tailwind|laravel|express|mysql|postgresql|aws|gcp|linkedin|instagram|project(?:s)?|work(?:s)?|built|proyek(?:-proyek)?|karya|pengalaman|keahlian|prestasi|pendidikan|kuliah|kontak)\b|ポートフォリオ|プロフィール|プロジェクト|作品|制作|作った|経験|スキル|連絡|技術|이력|포트폴리오|프로필|프로젝트|작품|만든|경력|기술|연락|作品集|简介|项目|作品|做过|经历|技能|联系|技术/i;
 
 const EXPLICIT_OFF_TOPIC_PATTERNS: RegExp[] = [
   /\b(resep|masak|masakan|memasak|cooking|recipe|makanan|kalori)\b/i,
