@@ -132,27 +132,37 @@ export function PortfolioChatbot({
         })
       });
 
-      const data = (await response.json()) as {
-        inScope?: boolean;
-        answer?: string;
-        suggestedSection?: string;
-        followUpPrompts?: string[];
-        error?: string;
-      };
+      const responseText = await response.text();
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(responseText);
+      } catch {
+        // Proxies and serverless platforms may return plain-text error pages.
+      }
+      const data =
+        typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed)
+          ? (parsed as Record<string, unknown>)
+          : null;
 
-      if (!response.ok && typeof data.answer !== 'string') {
-        throw new Error(data.error || copy.errorFallback);
+      if (!data || typeof data.answer !== 'string') {
+        const serverError = typeof data?.error === 'string' ? data.error : null;
+        throw new Error(serverError || copy.errorFallback);
       }
 
       const assistantMsg: ChatMessageItem = {
         id: `a-${Date.now()}`,
         role: 'assistant',
-        content: data.answer || copy.errorFallback,
-        inScope: Boolean(data.inScope),
-        answerBlocks: formatChatAnswer(data.answer || copy.errorFallback),
-        suggestedSection: sanitizeSuggestedSection(data.suggestedSection),
+        content: data.answer,
+        inScope: data.inScope === true,
+        answerBlocks: formatChatAnswer(data.answer),
+        suggestedSection:
+          typeof data.suggestedSection === 'string'
+            ? sanitizeSuggestedSection(data.suggestedSection)
+            : '',
         followUpPrompts: Array.isArray(data.followUpPrompts)
-          ? data.followUpPrompts.slice(0, 3)
+          ? data.followUpPrompts
+              .filter((prompt): prompt is string => typeof prompt === 'string')
+              .slice(0, 3)
           : []
       };
 

@@ -345,7 +345,7 @@ async function createApp() {
     }
   });
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.VERCEL !== '1' && process.env.NODE_ENV !== 'production') {
     const { createServer } = await import('vite');
     const vite = await createServer({
       server: { middlewareMode: true },
