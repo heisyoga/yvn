@@ -1,4 +1,4 @@
-import type { Language, LocalizedPortfolioData } from '../data/portfolioData';
+import type { Language, LocalizedPortfolioData } from '../data/portfolioData.ts';
 
 export type ChatRole = 'user' | 'assistant';
 

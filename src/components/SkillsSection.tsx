@@ -15,18 +15,18 @@ import type {
   PortfolioCopy,
   SkillFilterKey,
   SkillItem
-} from '../data/portfolioData';
+} from '../data/portfolioData.ts';
 import {
   computeSkillTransition,
   filterSkills,
   flattenSkillIcons,
   type FloatingSkillIcon
-} from '../utils/portfolioLogic';
+} from '../utils/portfolioLogic.ts';
 import {
   APPLE_SPRING_SNAPPY,
   RevealBlock
-} from './MotionPrimitives';
-import { TechLogo } from './TechLogos';
+} from './MotionPrimitives.tsx';
+import { TechLogo } from './TechLogos.tsx';
 
 interface SkillsSectionProps {
   skills: SkillItem[];

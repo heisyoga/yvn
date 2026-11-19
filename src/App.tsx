@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react';
 import { MotionConfig } from 'motion/react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { AboutSection } from './components/AboutSection';
-import { ContactFooter } from './components/ContactFooter';
-import { ExperienceSection } from './components/ExperienceSection';
-import { HeroSection } from './components/HeroSection';
-import { Navbar } from './components/Navbar';
-import { NotFoundPage } from './components/NotFoundPage';
-import { PortfolioChatbot } from './components/PortfolioChatbot';
-import { ProjectModal, type ProjectModalTab } from './components/ProjectModal';
-import { ProjectsSection } from './components/ProjectsSection';
-import { ScrollProgressBar } from './components/ScrollProgressBar';
-import { ScrollToTopButton } from './components/ScrollToTopButton';
-import { SkillsSection } from './components/SkillsSection';
+import { AboutSection } from './components/AboutSection.tsx';
+import { ContactFooter } from './components/ContactFooter.tsx';
+import { ExperienceSection } from './components/ExperienceSection.tsx';
+import { HeroSection } from './components/HeroSection.tsx';
+import { Navbar } from './components/Navbar.tsx';
+import { NotFoundPage } from './components/NotFoundPage.tsx';
+import { PortfolioChatbot } from './components/PortfolioChatbot.tsx';
+import { ProjectModal, type ProjectModalTab } from './components/ProjectModal.tsx';
+import { ProjectsSection } from './components/ProjectsSection.tsx';
+import { ScrollProgressBar } from './components/ScrollProgressBar.tsx';
+import { ScrollToTopButton } from './components/ScrollToTopButton.tsx';
+import { SkillsSection } from './components/SkillsSection.tsx';
 import {
   PORTFOLIO_DATA,
   type Language,
   type ProjectItem
-} from './data/portfolioData';
+} from './data/portfolioData.ts';
 import {
   buildCvDocument,
   isPortfolioHomePath,
@@ -26,7 +26,7 @@ import {
   resolveSeoMetadata,
   toggleThemeMode,
   type ThemeMode
-} from './utils/portfolioLogic';
+} from './utils/portfolioLogic.ts';
 
 const THEME_STORAGE_KEY = 'portfolio-theme';
 const LANG_STORAGE_KEY = 'portfolio-lang';

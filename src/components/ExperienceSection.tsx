@@ -6,13 +6,13 @@ import type {
   ExperienceFilterKey,
   ExperienceItem,
   PortfolioCopy
-} from '../data/portfolioData';
-import { filterExperiences } from '../utils/portfolioLogic';
+} from '../data/portfolioData.ts';
+import { filterExperiences } from '../utils/portfolioLogic.ts';
 import {
   APPLE_EASE,
   APPLE_SPRING_SNAPPY,
   RevealBlock
-} from './MotionPrimitives';
+} from './MotionPrimitives.tsx';
 
 interface ExperienceSectionProps {
   experiences: ExperienceItem[];

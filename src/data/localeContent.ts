@@ -1,4 +1,4 @@
-import type { Language, LocalizedPortfolioData } from './portfolioData';
+import type { Language, LocalizedPortfolioData } from './portfolioData.ts';
 
 export type ExtraLanguage = Exclude<Language, 'id' | 'en'>;
 

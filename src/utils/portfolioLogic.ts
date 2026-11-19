@@ -1,4 +1,4 @@
-import { SUPPORTED_LANGUAGES } from '../data/portfolioData';
+import { SUPPORTED_LANGUAGES } from '../data/portfolioData.ts';
 import type {
   ExperienceFilterKey,
   ExperienceItem,
@@ -8,7 +8,7 @@ import type {
   ProjectItem,
   SkillFilterKey,
   SkillItem
-} from '../data/portfolioData';
+} from '../data/portfolioData.ts';
 
 export type ThemeMode = 'light' | 'dark';
 

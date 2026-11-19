@@ -11,20 +11,20 @@ import type {
   PortfolioCopy,
   ProjectFilterKey,
   ProjectItem
-} from '../data/portfolioData';
+} from '../data/portfolioData.ts';
 import {
   CAROUSEL_AUTOPLAY_MS,
   computeCarouselStep,
   filterProjects
-} from '../utils/portfolioLogic';
+} from '../utils/portfolioLogic.ts';
 import {
   APPLE_SPRING_GENTLE,
   APPLE_SPRING_SNAPPY,
   RevealBlock
-} from './MotionPrimitives';
-import { ResilientImage } from './ResilientImage';
-import { TechLogo } from './TechLogos';
-import type { ProjectModalTab } from './ProjectModal';
+} from './MotionPrimitives.tsx';
+import { ResilientImage } from './ResilientImage.tsx';
+import { TechLogo } from './TechLogos.tsx';
+import type { ProjectModalTab } from './ProjectModal.tsx';
 
 interface ProjectsSectionProps {
   projects: ProjectItem[];

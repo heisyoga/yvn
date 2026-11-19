@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import type { PortfolioCopy } from '../data/portfolioData';
-import { hasScrolledPastHero } from '../utils/portfolioLogic';
-import { APPLE_EASE, APPLE_SPRING_SNAPPY } from './MotionPrimitives';
+import type { PortfolioCopy } from '../data/portfolioData.ts';
+import { hasScrolledPastHero } from '../utils/portfolioLogic.ts';
+import { APPLE_EASE, APPLE_SPRING_SNAPPY } from './MotionPrimitives.tsx';
 
 interface ScrollToTopButtonProps {
   copy: PortfolioCopy['scrollToTop'];

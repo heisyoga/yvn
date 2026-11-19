@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Check, CheckCircle2, ChevronDown, Github, Instagram, Linkedin, Send } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import type { Language, PortfolioCopy, ProfileData } from '../data/portfolioData';
+import type { Language, PortfolioCopy, ProfileData } from '../data/portfolioData.ts';
 import {
   validateContactForm,
   type ContactFormInput
-} from '../utils/portfolioLogic';
+} from '../utils/portfolioLogic.ts';
 import {
   APPLE_EASE,
   APPLE_SPRING_SNAPPY,
   RevealBlock,
   RevealDivider
-} from './MotionPrimitives';
+} from './MotionPrimitives.tsx';
 
 interface ContactFooterProps {
   profile: ProfileData;

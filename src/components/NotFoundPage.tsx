@@ -1,8 +1,8 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
-import type { PortfolioCopy, ProfileData } from '../data/portfolioData';
-import { APPLE_EASE, APPLE_SPRING_SNAPPY } from './MotionPrimitives';
+import type { PortfolioCopy, ProfileData } from '../data/portfolioData.ts';
+import { APPLE_EASE, APPLE_SPRING_SNAPPY } from './MotionPrimitives.tsx';
 
 interface NotFoundPageProps {
   profile: ProfileData;

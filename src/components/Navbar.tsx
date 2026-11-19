@@ -7,9 +7,9 @@ import {
   useReducedMotion,
   useScroll
 } from 'motion/react';
-import { LANGUAGE_LABELS, SUPPORTED_LANGUAGES, type Language, type PortfolioCopy } from '../data/portfolioData';
-import type { ThemeMode } from '../utils/portfolioLogic';
-import { APPLE_EASE, APPLE_SPRING_SNAPPY } from './MotionPrimitives';
+import { LANGUAGE_LABELS, SUPPORTED_LANGUAGES, type Language, type PortfolioCopy } from '../data/portfolioData.ts';
+import type { ThemeMode } from '../utils/portfolioLogic.ts';
+import { APPLE_EASE, APPLE_SPRING_SNAPPY } from './MotionPrimitives.tsx';
 
 interface NavbarProps {
   brandName: string;

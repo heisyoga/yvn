@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { calculateScrollProgress } from '../utils/portfolioLogic';
+import { calculateScrollProgress } from '../utils/portfolioLogic.ts';
 
 export function ScrollProgressBar() {
   const trackRef = useRef<HTMLDivElement>(null);

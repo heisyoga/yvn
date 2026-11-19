@@ -7,14 +7,14 @@ import {
   useScroll,
   useTransform
 } from 'motion/react';
-import type { PortfolioCopy, ProfileData } from '../data/portfolioData';
+import type { PortfolioCopy, ProfileData } from '../data/portfolioData.ts';
 import {
   APPLE_EASE,
   APPLE_SPRING_SNAPPY,
   HeroMountBlock,
   HeroScaleBlock
-} from './MotionPrimitives';
-import { ResilientImage } from './ResilientImage';
+} from './MotionPrimitives.tsx';
+import { ResilientImage } from './ResilientImage.tsx';
 
 interface HeroSectionProps {
   profile: ProfileData;

@@ -1,5 +1,5 @@
-import type { PortfolioCopy, ProfileData } from '../data/portfolioData';
-import { RevealBlock, RevealCard, RevealDivider } from './MotionPrimitives';
+import type { PortfolioCopy, ProfileData } from '../data/portfolioData.ts';
+import { RevealBlock, RevealCard, RevealDivider } from './MotionPrimitives.tsx';
 
 interface AboutSectionProps {
   profile: ProfileData;

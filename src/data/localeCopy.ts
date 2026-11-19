@@ -1,4 +1,4 @@
-import type { Language, PortfolioCopy } from './portfolioData';
+import type { Language, PortfolioCopy } from './portfolioData.ts';
 
 export const EXTRA_LOCALE_COPY: Record<Exclude<Language, 'id' | 'en'>, PortfolioCopy> = {
   ja: {

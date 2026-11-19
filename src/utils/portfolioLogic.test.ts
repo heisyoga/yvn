@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA } from '../data/portfolioData.ts';
 import {
   buildPortfolioContextPrompt,
   evaluateChatTopicScope,
   sanitizeSuggestedSection
-} from './chatDomain';
+} from './chatDomain.ts';
 import {
   buildCvDocument,
   calculateScrollProgress,
@@ -23,7 +23,7 @@ import {
   toggleLanguage,
   toggleThemeMode,
   validateContactForm
-} from './portfolioLogic';
+} from './portfolioLogic.ts';
 
 test('theme helpers resolve and toggle light/dark mode predictably', () => {
   assert.equal(resolveInitialTheme('dark', false), 'dark');

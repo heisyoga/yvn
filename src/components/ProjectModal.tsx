@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Check, Copy, ExternalLink, Github, Layers, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import type { PortfolioCopy, ProjectItem } from '../data/portfolioData';
+import type { PortfolioCopy, ProjectItem } from '../data/portfolioData.ts';
 import {
   APPLE_EASE,
   APPLE_SPRING_GENTLE,
   APPLE_SPRING_SNAPPY
-} from './MotionPrimitives';
-import { ResilientImage } from './ResilientImage';
-import { TechLogo } from './TechLogos';
+} from './MotionPrimitives.tsx';
+import { ResilientImage } from './ResilientImage.tsx';
+import { TechLogo } from './TechLogos.tsx';
 
 export type ProjectModalTab = 'preview' | 'code';
 

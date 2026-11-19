@@ -14,15 +14,15 @@ import {
   X
 } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import type { Language, PortfolioCopy } from '../data/portfolioData';
+import type { Language, PortfolioCopy } from '../data/portfolioData.ts';
 import {
   MAX_CHAT_MESSAGE_LENGTH,
   sanitizeSuggestedSection,
   type ChatHistoryTurn,
   type ChatSectionHref
-} from '../utils/chatDomain';
-import { formatChatAnswer } from '../utils/chatAnswerPresentation';
-import { APPLE_EASE, APPLE_SPRING_SNAPPY } from './MotionPrimitives';
+} from '../utils/chatDomain.ts';
+import { formatChatAnswer } from '../utils/chatAnswerPresentation.ts';
+import { APPLE_EASE, APPLE_SPRING_SNAPPY } from './MotionPrimitives.tsx';
 
 interface ChatMessageItem {
   id: string;
