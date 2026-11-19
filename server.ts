@@ -176,7 +176,7 @@ async function generateWithRetry(
   throw lastError;
 }
 
-async function startServer() {
+async function createApp() {
   const app = express();
   app.use(express.json({ limit: '64kb' }));
 
@@ -365,12 +365,25 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Portfolio server running at http://0.0.0.0:${PORT}`);
-  });
+  return app;
 }
 
-startServer().catch((err) => {
-  console.error('Failed to start server:', err);
-  process.exit(1);
-});
+const appPromise = createApp();
+
+export default async function handler(req: Request, res: Response) {
+  const app = await appPromise;
+  app(req, res);
+}
+
+if (process.env.VERCEL !== '1') {
+  appPromise
+    .then((app) => {
+      app.listen(PORT, '0.0.0.0', () => {
+        console.log(`Portfolio server running at http://0.0.0.0:${PORT}`);
+      });
+    })
+    .catch((err) => {
+      console.error('Failed to start server:', err);
+      process.exit(1);
+    });
+}

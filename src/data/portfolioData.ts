@@ -503,7 +503,7 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
           'Web kolaborasi bersama rekan sekolah untuk pelaksanaan voting ketua OSIS di SMK Negeri 1 Denpasar.',
         description:
           'Platform pemungutan suara digital yang dikembangkan bersama tim siswa SMK Negeri 1 Denpasar guna memfasilitasi pemilihan ketua OSIS 2024 secara tertib, akurat, dan terdokumentasi.',
-        thumbnail: '/src/assets/images/project_evoting_skensa_1794938309303.jpg',
+        thumbnail: '/src/assets/images/project_evoting_skensa_1794938309303.JPG',
         thumbnailAlt:
           'Tampilan antarmuka pemilihan digital eVoting SKENSA 2024 pada laptop',
         showThumbnail: true,
@@ -1078,7 +1078,7 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
           'Collaborative web platform built with school peers for student council president voting at SMK Negeri 1 Denpasar.',
         description:
           'A digital voting application created in collaboration with fellow students at SMK Negeri 1 Denpasar to run the 2024 student council president election cleanly and transparently.',
-        thumbnail: '/src/assets/images/project_evoting_skensa_1794938309303.jpg',
+        thumbnail: '/src/assets/images/project_evoting_skensa_1794938309303.JPG',
         thumbnailAlt:
           'eVoting SKENSA 2024 student council voting web application on a laptop',
         showThumbnail: true,
