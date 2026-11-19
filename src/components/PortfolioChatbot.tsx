@@ -144,7 +144,12 @@ export function PortfolioChatbot({
           ? (parsed as Record<string, unknown>)
           : null;
 
-      if (!data || typeof data.answer !== 'string') {
+      if (
+        !response.ok ||
+        !data ||
+        typeof data.answer !== 'string' ||
+        !data.answer.trim()
+      ) {
         const serverError = typeof data?.error === 'string' ? data.error : null;
         throw new Error(serverError || copy.errorFallback);
       }
