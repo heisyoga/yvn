@@ -275,7 +275,7 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
   id: {
     profile: {
       name: 'Adi Yoga',
-      shortName: 'Adi Yoga',
+      shortName: 'YVN',
       university: 'INSTIKI (Institut Bisnis dan Teknologi Indonesia)',
       degree: 'S1 Informatika (Artificial Intelligence)',
       location: 'Denpasar, Bali',
@@ -437,7 +437,7 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
         title: 'Mandha Ru Profile',
         filterKey: 'frontend',
         categoryLabel: 'Front End',
-        statusLabel: 'Live · mandharu-profile.vercel.app',
+        statusLabel: 'Live · mandharu.yvn.web.id',
         actionState: 'live',
         actionLabel: 'Lihat Demo',
         year: '2025',
@@ -451,8 +451,8 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
         showThumbnail: true,
         techStack: ['React', 'Tailwind CSS', 'Vercel'],
         githubUrl: null,
-        demoUrl: 'https://mandharu-profile.vercel.app',
-        displayUrl: 'mandharu-profile.vercel.app',
+        demoUrl: 'https://mandharu.yvn.web.id',
+        displayUrl: 'mandharu.yvn.web.id',
         highlights: [
           'Penyajian menu kedai kopi dan informasi profil yang ringkas serta mudah dibaca di layar seluler.',
           'Tata letak responsif dan ringan menggunakan komponen modular React dan utilitas Tailwind CSS.',
@@ -850,7 +850,7 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
   en: {
     profile: {
       name: 'Adi Yoga',
-      shortName: 'Adi Yoga',
+      shortName: 'YVN',
       university: 'INSTIKI (Institut Bisnis dan Teknologi Indonesia)',
       degree: 'B.Sc. in Informatics (Artificial Intelligence)',
       location: 'Denpasar, Bali',
@@ -1012,7 +1012,7 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
         title: 'Mandha Ru Profile',
         filterKey: 'frontend',
         categoryLabel: 'Front End',
-        statusLabel: 'Live · mandharu-profile.vercel.app',
+        statusLabel: 'Live · mandharu.yvn.web.id',
         actionState: 'live',
         actionLabel: 'Live Demo',
         year: '2025',
@@ -1026,8 +1026,8 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
         showThumbnail: true,
         techStack: ['React', 'Tailwind CSS', 'Vercel'],
         githubUrl: null,
-        demoUrl: 'https://mandharu-profile.vercel.app',
-        displayUrl: 'mandharu-profile.vercel.app',
+        demoUrl: 'https://mandharu.yvn.web.id',
+        displayUrl: 'mandharu.yvn.web.id',
         highlights: [
           'Clear menu presentation and cafe profile crafted for fast mobile browsing.',
           'Responsive modular components built with React and Tailwind CSS.',
