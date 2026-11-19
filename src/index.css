@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", system-ui, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes apple-float-even {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes apple-float-odd {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 6px, 0);
+  }
+}
+
+.apple-float-even {
+  animation: apple-float-even var(--float-duration, 4s) ease-in-out var(--float-delay, 0s) infinite;
+  will-change: transform;
+}
+
+.apple-float-odd {
+  animation: apple-float-odd var(--float-duration, 4.4s) ease-in-out var(--float-delay, 0s) infinite;
+  will-change: transform;
+}
+
+.apple-float-paused .apple-float-even,
+.apple-float-paused .apple-float-odd {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apple-float-even,
+  .apple-float-odd {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+@keyframes apple-marquee-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.apple-marquee-ltr {
+  animation: apple-marquee-ltr var(--marquee-duration, 38s) linear infinite;
+  will-change: transform;
+}
+
+.apple-marquee-wrap:hover .apple-marquee-ltr,
+.apple-marquee-wrap:focus-within .apple-marquee-ltr {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apple-marquee-ltr {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+}
