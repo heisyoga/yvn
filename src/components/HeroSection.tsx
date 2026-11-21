@@ -184,7 +184,7 @@ export function HeroSection({
                 className="h-full w-full scale-[1.04]"
               >
                 <ResilientImage
-                  src="/src/assets/images/IMG_3115.jpeg"
+                  src={profile.portraitImage || '/src/assets/images/IMG_3115.jpeg'}
                   alt={copy.portraitAlt}
                   fallbackTitle="Adi Yoga — Studio Workspace"
                   className="aspect-[4/3] h-full w-full object-cover"

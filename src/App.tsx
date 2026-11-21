@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { MotionConfig } from 'motion/react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { AboutSection } from './components/AboutSection.tsx';
@@ -18,6 +18,7 @@ import {
   type Language,
   type ProjectItem
 } from './data/portfolioData.ts';
+
 import {
   buildCvDocument,
   isPortfolioHomePath,
@@ -27,6 +28,8 @@ import {
   toggleThemeMode,
   type ThemeMode
 } from './utils/portfolioLogic.ts';
+
+const AdminPage = lazy(() => import('./components/AdminPage.tsx'));
 
 const THEME_STORAGE_KEY = 'portfolio-theme';
 const LANG_STORAGE_KEY = 'portfolio-lang';
@@ -39,6 +42,7 @@ export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = isPortfolioHomePath(location.pathname);
+  const isAdminRoute = location.pathname.replace(/\/+$/, '') === '/_gate';
 
   const [theme, setTheme] = useState<ThemeMode>(() => {
     if (typeof window === 'undefined') return 'light';
@@ -55,13 +59,31 @@ export default function App() {
     return resolveInitialLanguage(stored);
   });
 
+  const [portfolioData, setPortfolioData] = useState(PORTFOLIO_DATA);
   const [cvDownloaded, setCvDownloaded] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
     null
   );
   const [modalTab, setModalTab] = useState<ProjectModalTab>('preview');
 
-  const localized = PORTFOLIO_DATA[language];
+  const localized = portfolioData[language];
+
+  useEffect(() => {
+    let active = true;
+    fetch('/api/portfolio')
+      .then(async (response) => {
+        if (!response.ok) return null;
+        const payload = await response.json() as { data?: typeof PORTFOLIO_DATA };
+        return payload.data ?? null;
+      })
+      .then((data) => {
+        if (active && data) setPortfolioData(data);
+      })
+      .catch(() => {
+        // Keep bundled content available if spreadsheet service is unavailable.
+      });
+    return () => { active = false; };
+  }, []);
   const selectedProject =
     localized.projects.find((p) => p.id === selectedProjectId) ?? null;
 
@@ -89,12 +111,22 @@ export default function App() {
   }, [language]);
 
   useEffect(() => {
-    const seo = resolveSeoMetadata({
+    const baseSeo = resolveSeoMetadata({
       language,
       pathname: location.pathname,
       origin: window.location.origin,
       isHome
     });
+    const configuredSeo = (portfolioData[language] as (typeof portfolioData)[Language] & { seo?: { title?: string; description?: string; imageAlt?: string; socialImageUrl?: string } }).seo;
+    const seo = {
+      ...baseSeo,
+      ...(isHome && configuredSeo ? {
+        title: configuredSeo.title || baseSeo.title,
+        description: configuredSeo.description || baseSeo.description,
+        imageAlt: configuredSeo.imageAlt || baseSeo.imageAlt,
+        imageUrl: configuredSeo.socialImageUrl || baseSeo.imageUrl
+      } : {})
+    };
 
     document.title = seo.title;
 
@@ -114,7 +146,7 @@ export default function App() {
     };
 
     setMeta('name', 'description', seo.description);
-    setMeta('name', 'robots', seo.robots);
+    setMeta('name', 'robots', isAdminRoute ? 'noindex, nofollow' : seo.robots);
     setMeta('property', 'og:site_name', seo.siteName);
     setMeta('property', 'og:title', seo.title);
     setMeta('property', 'og:description', seo.description);
@@ -137,7 +169,7 @@ export default function App() {
       document.head.appendChild(canonical);
     }
     canonical.setAttribute('href', seo.canonicalUrl);
-  }, [isHome, language, location.pathname]);
+  }, [isAdminRoute, isHome, language, location.pathname, portfolioData]);
 
   useEffect(() => {
     if (!isHome) {
@@ -289,7 +321,7 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] transition-colors duration-200 dark:bg-[#000000] dark:text-[#F5F5F7]">
         {isHome && <ScrollProgressBar />}
-        <Navbar
+        {!isAdminRoute && <Navbar
           brandName={localized.profile.shortName}
           theme={theme}
           language={language}
@@ -298,9 +330,10 @@ export default function App() {
           onNavigateHomeSection={handleNavigateHomeSection}
           onToggleTheme={handleToggleTheme}
           onSelectLanguage={handleSelectLanguage}
-        />
+        />}
 
         <Routes>
+          <Route path="/_gate" element={<Suspense fallback={<div className="min-h-screen bg-[#F5F5F7] dark:bg-black" />}><AdminPage /></Suspense>} />
           <Route path="/" element={homeElement} />
           <Route path="/index.html" element={homeElement} />
           <Route
@@ -314,19 +347,21 @@ export default function App() {
           />
         </Routes>
 
-        <PortfolioChatbot
-          language={language}
-          copy={localized.copy.chatbot}
-          onNavigateSection={handleNavigateHomeSection}
-          leadingAccessory={
-            isHome ? (
-              <ScrollToTopButton
-                floating={false}
-                copy={localized.copy.scrollToTop}
-              />
-            ) : null
-          }
-        />
+        {!isAdminRoute && (
+          <PortfolioChatbot
+            language={language}
+            copy={localized.copy.chatbot}
+            onNavigateSection={handleNavigateHomeSection}
+            leadingAccessory={
+              isHome ? (
+                <ScrollToTopButton
+                  floating={false}
+                  copy={localized.copy.scrollToTop}
+                />
+              ) : null
+            }
+          />
+        )}
       </div>
     </MotionConfig>
   );

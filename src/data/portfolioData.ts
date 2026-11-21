@@ -26,6 +26,7 @@ export interface ProfileData {
   degree: string;
   location: string;
   email: string;
+  portraitImage?: string;
   roles: string[];
   heroSummary: string;
   aboutParagraphs: string[];
@@ -280,6 +281,7 @@ const BASE_PORTFOLIO_DATA: Record<BaseLanguage, LocalizedPortfolioData> = {
       degree: 'S1 Informatika (Artificial Intelligence)',
       location: 'Denpasar, Bali',
       email: 'kay.komangyoga@gmail.com',
+      portraitImage: '/src/assets/images/IMG_3115.jpeg',
       roles: ['IT College', 'Web Developer', 'Musician'],
       heroSummary:
         'Mahasiswa S1 Informatika di INSTIKI Denpasar. Membangun aplikasi web dan infrastruktur jaringan, serta berkarya di teater dan musik.',
