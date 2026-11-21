@@ -15,10 +15,6 @@ A responsive, multilingual portfolio built with React, Vite, and Express. Conten
 - **Contact form** stored in the spreadsheet and optionally delivered through Telegram.
 - **CV generation** and localized page metadata.
 
-### Design — Apple Design Hierarchy
-
-The interface follows Apple's design hierarchy: clear typography leads, content comes first, and controls stay quiet until they are needed. The admin studio uses the same principles — focused sections, concise labels, one primary action per view, and confirmation before destructive changes.
-
 ## Getting started
 
 ### Requirements
